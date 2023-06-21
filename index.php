@@ -29,7 +29,7 @@
                 <!-- Modal Header -->
                 <div class="modal-header">
                     <h5 class="modal-title" id="myModalLabel">Inicio de sesión</h5>
-                    <button id="BOTON1" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button id="BOTON1" type="button"   class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -39,7 +39,7 @@
                     <br action="index.php" method="POST">
                         <div class="form-group">
                             <label for="documento">Nombre:</label>
-                            <input type="number" name="txttitutal" class="form-control" id="documento" placeholder="Documento">
+                            <input type="txt" name="txtNombre" class="form-control" id="documento" placeholder="Documento">
                         </div>
                         <div class="form-group">
                             <label for="contraseña">Contraseña:</label>
@@ -47,7 +47,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary">Iniciar sesión</button>
                         <br></br>
-                        <p><a href="https://mail.google.com/mail/u/0/">!No tines cuenta¡</a></p>
+                        <p>!No tienes cuenta¡<a href="https://mail.google.com/mail/u/0/">HAS click aqui</a></p>
 
                     </form>
                 </div>
