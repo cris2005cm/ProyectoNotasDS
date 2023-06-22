@@ -1,7 +1,7 @@
 <?php
 class Conexion
 {
-    protected $db;
+    public $db;
     private $driver = "mysql";
     private $host = "localhost";
     private $namedb = "notas2023";
@@ -13,6 +13,8 @@ class Conexion
         try {
             $this->db = new PDO("{$this->driver}:host={$this->host};dbname={$this->namedb}", $this->user, $this->password);
             $this->db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+            return $db;
             
             echo "Conexión realizada";
 

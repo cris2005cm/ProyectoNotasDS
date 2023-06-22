@@ -17,14 +17,14 @@
   <form action="/action_page.php" class="was-validated">
     <div class="form-group">
       <label for="uname"></label>
-      <input type="text" class="form-control" id="uname" name="Nombre" placeholder="Nombre de aprendiz" name="uname" required style="width: 300px;">
+      <input type="text" class="form-control" id="uname" name="txtNombre" placeholder="Nombre de aprendiz" name="uname" required style="width: 300px;">
       <div class="valid-feedback"></div>
       <div class="invalid-feedback"></div>
     </div>
 
     <div class="form-group">
         <label for="uname"></label>
-        <input type="text" class="form-control" id="uname" name="Apellido" placeholder="Apellido de aprendiz" name="uname" required style="width: 300px;">
+        <input type="text" class="form-control" id="uname" name="txtApellido" placeholder="Apellido de aprendiz" name="uname" required style="width: 300px;">
         <div class="valid-feedback"></div>
         <div class="invalid-feedback"></div>
     </div>
@@ -32,35 +32,35 @@
 
     <div class="form-group">
         <label for="uname"></label>
-        <input type="text" class="form-control" id="uname"  name="Documento" placeholder="Documento del estudiante" name="uname" required style="width: 300px;">
+        <input type="text" class="form-control" id="uname"  name="txtDocumento" placeholder="Documento del estudiante" name="uname" required style="width: 300px;">
         <div class="valid-feedback"></div>
         <div class="invalid-feedback"></div>
     </div>
 
     <div class="form-group">
         <label for="uname"></label>
-        <input type="text" class="form-control" id="uname"  name="Correo" placeholder="Correo del estudiante" name="uname" required style="width: 300px;">
+        <input type="text" class="form-control" id="uname"  name="txtCorreo" placeholder="Correo del estudiante" name="uname" required style="width: 300px;">
         <div class="valid-feedback"></div>
         <div class="invalid-feedback"></div>
     </div>
 
     <div class="form-group">
         <label for="uname"></label>
-        <input type="text" class="form-control" id="uname"  name="Matera" placeholder="Materia del estudiante" name="uname" required style="width: 300px;">
+        <input type="text" class="form-control" id="uname"  name="txtMatera" placeholder="Materia del estudiante" name="uname" required style="width: 300px;">
         <div class="valid-feedback"></div>
         <div class="invalid-feedback"></div>
     </div>
 
     <div class="form-group">
         <label for="uname"></label>
-        <input type="text" class="form-control" id="uname"  name="Docente" placeholder="Docente" name="uname" required style="width: 300px;">
+        <input type="text" class="form-control" id="uname"  name="txtDocente" placeholder="Docente" name="uname" required style="width: 300px;">
         <div class="valid-feedback"></div>
         <div class="invalid-feedback"></div>
     </div>
 
     <div class="form-group form-check">
       <label class="form-check-label">
-        <input class="form-check-input" type="checkbox" name="remember" required> ¿Todo es correcto?
+        <input class="form-check-input" type="checkbox" name="txtremember" required> ¿Todo es correcto?
         <div class="valid-feedback">Confirmado.</div>
         <div class="invalid-feedback"></div>
       </label>
