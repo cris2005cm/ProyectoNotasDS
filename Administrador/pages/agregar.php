@@ -19,34 +19,50 @@
     height: 55px;
     border: solid 2px;">Crear Cuenta</h1>
     <br>
-    <form >
+    <form  action="../../Administrador/controladores/agregarusuarios.php" method="POST">
       
-     <input type="Text" id="nombreuso"name="nombreuso" class="form-control" placeholder="Nombre" style="height: 40px;width: 250px;border: solid 1px;left: 550px;position: relative;
+     <input type="Text" id="nombreuso"name="txtnombre" class="form-control" placeholder="Nombre" style="height: 40px;width: 250px;border: solid 1px;left: 550px;position: relative;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
      <br>
-     <input type="Text" id="Apellidouso"name="Apellidouso"class="form-control" placeholder="Apellido" style="height: 40px;width: 250px;border: solid 1px;left: 550px;position: relative;
+     <input type="Text" id="Apellidouso"name="txtapellido"class="form-control" placeholder="Apellido" style="height: 40px;width: 250px;border: solid 1px;left: 550px;position: relative;
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
      <br>
     
-     <input type="Text" id="Usuario"name="nombreuso"class="form-control" placeholder="Nombre de Usuario"style="height: 40px;width: 250px;border: solid 1px;left: 550px;position: relative;
+     <input type="Text" id="Usuario"name="txtusuario"class="form-control" placeholder="Nombre de Usuario"style="height: 40px;width: 250px;border: solid 1px;left: 550px;position: relative;
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
      <br>
-     <select name="Perfil" class="form-control"style="eight: 40px;width: 250px;border: solid 1px;left: 550px;position: relative;
+     <select name="txtperfil" class="form-control"style="eight: 40px;width: 250px;border: solid 1px;left: 550px;position: relative;
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
-        <option>Docente</option>
-        <option>Administrador</option>
-        <option>Estudiante</option>
+        <option  value="Docente">Docente</option>
+        <option value="Administrador">Administrador</option>
+        <option value="Estudiante">Estudiante</option>
+     </select>
+     <br>
+     <select name="txtestado" class="form-control"style="eight: 40px;width: 250px;border: solid 1px;left: 550px;position: relative;
+   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+        <option  value="Docente">Activo</option>
+        <option value="Administrador">Inactivo</option>
+        
      </select>
      <br>
      <div id="password">
-     <input type="password" id="Password"name="Password"class="form-control" placeholder="Password"style="height: 40px;width: 250px;border: solid 1px;left: 550px;position: relative;
+     <input type="password" id="Password"name="txtcontrasena"class="form-control" placeholder="Password"style="height: 40px;width: 250px;border: solid 1px;left: 550px;position: relative;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" >
      <br>
      </div>
-     <input type="submit"class="form-control" placeholder="Enviar"style="height: 40px;width: 250px;border: solid 1px;left: 550px;position: relative;
+     <input name="values" type="submit"class="form-control" placeholder="Enviar"style="height: 40px;width: 250px;border: solid 1px;left: 550px;position: relative;
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
     </form>
     
     
 </body>
 </html>
+
+
+
+
+
+
+
+
+

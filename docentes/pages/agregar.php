@@ -49,7 +49,7 @@
     </div>
     <div class="form-group">
       <label for="uname"></label>
-      <input type="password" class="form-control" id="Password" name="Password" placeholder="Password " name="uname" required style="width: 300px;">
+      <input type="password" class="form-control" id="Passwoord" name="Passwoord" placeholder="Password " name="uname" required style="width: 300px;">
       <div class="valid-feedback"></div>
       <div class="invalid-feedback"></div>
     </div>
