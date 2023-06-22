@@ -17,7 +17,7 @@
   <form action="/action_page.php" class="was-validated">
     <div class="form-group">
       <label for="uname"></label>
-      <input type="text" class="form-control" id="txtnombre" name="nombre" placeholder="Ingrese nombre de la materia" name="uname" required style="width: 300px;">
+      <input type="text" class="form-control" id="nombre" name="txtnombre" placeholder="Ingrese nombre de la materia" name="uname" required style="width: 300px;">
       <div class="valid-feedback"></div>
       <div class="invalid-feedback"></div>
     </div>
