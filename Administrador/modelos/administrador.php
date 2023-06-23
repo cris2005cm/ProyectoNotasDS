@@ -1,15 +1,17 @@
 <?php
 include_once('../../Conexion.php');
-class Administrador extends Conexion
+
+class Administrador extends conexion
 {
-    public function __construct(){
+    public function __construct()
+    {
         $this->db = parent::__construct();
     }
-    public function  add($Nombreuso,$Apellidouso,$Usuario, $Passwoord,$Perfil,$Estado){
 
-    }
-    
-    public function getadmin(){
+    // Registrar usuarios
+    public function addadmi($Nombreuso,$Apellidouso,$Usuario, $Passwoord,$Perfil,$Estado)
+    {
+        // Crear sentencia SQL
         $statement = $this ->db->prepare("INSERT INTO usuarios(Nombreusu,Apellidousu,Usuario,Passwoord,Perfil,Estado)
         VALUES(:Nombreusu,:Apellidousu,:Usuario,:Passwoord,:Perfil,:Estado)");
         $statement->bindParam(':Nombreusu',$Nombreuso);
@@ -18,68 +20,75 @@ class Administrador extends Conexion
         $statement->bindParam(':Passwoord',$Passwoord);
         $statement->bindParam(':Perfil',$Perfil);
         $statement->bindParam(':Estado',$Estado);
-        if($statement>execute()){
-            header('location:../../pages/index.php');
-         echo "Usuario Registrado";
-        }
-        else
-        {
-        echo"Usuario no registrado";
-        header('location:../../pages/agregar.php');
-        }
         
+        if ($statement->execute()) {
+            echo "Usuario registrado";
+            header('Location: ../pages/index.php');
+        } else {
+            echo "Usuario no registrado";
+            header('Location: ../pages/agregar.php');
+        }
     }
-   
 
-    public function getadd(){
-        $row=null;
-        $statement=$this->db->prepare("SELECT * FROM usuarios 
+    // Funcion para consultar todos los usuarios administradores
+    public function getadmin()
+    {
+        
+        $row = null;
+        $statement = $this->db->prepare("SELECT * FROM usuarios 
         WHERE Perfil='Administrador'");
         $statement->execute();
-        while($result->$statement->fetch()){
-            $row[]=$result;
-
+        while ($result = $statement->fetch()) {
+            $row[] = $result;
         }
         return $row;
-    } 
-    public function getidad($Id){
-   $row=null;
-   $statement=$this->db->prepare("SELECT * FROM usuarios WHERE id_usuario=:Id and Perfil='Administrador");
-   $statement->bindParam(':Id',$Id);
-   $statement->execute();
-   while ($result->statement->fetch()){
-    $row[]=$result;
-   };
-    } 
-    
-    public function updatead($Id,$Nombreuso,$Apellidouso,$Usuario, $Passwoord,$Estado)
-   {
-    $statement=$this->db->prepare("UPDATE usuarios SET Nombreuso=:Nombreusu,Apellidousu=:Apellidousu,Usuario=:Usuariousu,Passwoord=:Passwoord,Estadouso=:Estado where id_usuario=$Id" ) ;
-    $statement->bindParam(':Id',$Id);
-    $statement->bindParam(':Nombreusu',$Nombreuso);
-    $statement->bindParam(':Apellidousu',$Apellidouso);
-    $statement->bindParam(':Usuario',$Usuario);
-    $statement->bindParam(':Passwoord',$Passwoord);
-    $statement->bindParam(':Estado',$Estado);
-    if($statement->execute()){
-        header('Location: ../pages/index.php');
-        echo("usuario actualizado");
     }
-    else{
-        header('Location: ../pages/editar.php');
-    };
-   } 
-   public function deletead($Id){
-   $statement=$this->db->prepare("DELETE FROM usuarios Where id_usuario=:Id ");
-   $statement->bindParam(':Id',$Id);
-   if($statement->execute()){
-    echo"Usurio eliminado";
-    header('Location: ...pages/eliminar.php');
-   }else{
-    echo"error no se puede eliminar usuario";
-    header('Location: ..pages/eliminar.php');
-   }
-}
-}
 
+    // Funcion para consultar usuario segun su ID
+    public function getidad($id)
+    {
+        $row = null;
+        $statement = $this->db->prepare("SELECT * FROM usuarios WHERE id_usuario = :id AND perfil = 'Administrador'");
+        $statement->bindParam(':id', $id);
+        $statement->execute();
+        while ($result = $statement->fetch()) {
+            $row[] = $result;
+        }
+        return $row;
+    }
+
+    // Actualizar los datos del usuario
+    public function updatead($Id,$Nombreuso,$Apellidouso,$Usuario, $Passwoord,$Estado)
+    {
+        $statement = $this->db->prepare("INSERT INTO usuarios(Nombreusu,Apellidousu,Usuario,Passwoord,Perfil,Estado)
+        VALUES(:Nombreusu,:Apellidousu,:Usuario,:Passwoord,:Perfil,:Estado)");
+        $statement->bindParam(':Nombreusu',$Nombreuso);
+        $statement->bindParam(':Apellidousu',$Apellidouso);
+        $statement->bindParam(':Usuario',$Usuario);
+        $statement->bindParam(':Passwoord',$Passwoord);
+        $statement->bindParam(':Perfil',$Perfil);
+
+        if ($statement->execute()) {
+            echo "El usuario se actualizó correctamente";
+            header('Location: ../pages/index.php');
+        } else {
+            header('Location: ../pages/editar.php');
+        }
+    }
+
+    // Funcion para eliminar un usuario
+    public function deletead($id)
+    {
+        $statement = $this->db->prepare("DELETE FROM usuarios Where id_usuario=:Id ");
+        $statement->bindParam(':Id',$Id);
+
+        if ($statement->execute()) {
+            echo "Usuario eliminado";
+            header('Location: ../pages/index.php');
+        } else {
+            echo "Error al eliminar el usuario";
+            header('Location: ../pages/eliminar.php');
+        }
+    }
+}
 ?>

@@ -30,6 +30,8 @@
           font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"  href="#">Cerrar Sesion<Section></Section></a>
         </li>
       </ul>
+</NAV>
+<nav>
       
     
 </body>

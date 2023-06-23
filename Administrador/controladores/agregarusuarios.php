@@ -10,6 +10,6 @@ $Passwordusu=MD5($_POST['txtcontrasena']);
 $Usuario=$_POST['txtusuario'];
 $Perfil=$_POST['txtperfil'];
 $Estadouso=$_POST['txtestado'];
-$admin->getadd($Nombreuso,$Apellidouso,$Usuario,$Passwordusu,$Perfil,$Estadouso);
+$admin->  addadmi($Nombreuso,$Apellidouso,$Usuario,$Passwordusu,$Perfil,$Estadouso);
 
 ?>
