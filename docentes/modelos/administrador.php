@@ -1,7 +1,7 @@
-<?php
-include_once('../../Conexion.php');
+<<?php
+include_once('../../conexion.php');
 
-class Administrador extends conexion
+class Docente extends conexion
 {
     public function __construct()
     {
@@ -9,86 +9,81 @@ class Administrador extends conexion
     }
 
     // Registrar usuarios
-    public function addadmi($Nombreuso,$Apellidouso,$Usuario, $Passwoord,$Perfil,$Estado)
+    public function adddoc($nombredoc, $apellidodoc, $documento, $correo, $materia, $perfil, $estado)
     {
-        // Crear sentencia SQL
-        $statement = $this ->db->prepare("INSERT INTO docentes(id_docente int(15) not null auto_increment primary key,
-        Nombredoc,Apellidodoc,Documentodoc,Correodoc,Materiadoc,Notas )
-        VALUES(:Nombredoc,:Apellidodoce,:Documentodoc,:Correodoc,:Materiadoc,:Notas)");
-        $statement->bindParam(':Nombredoc',$Nombredoc);
-        $statement->bindParam(':Apellidodoce',$Apellidodoce);
-        $statement->bindParam(':Documentodoc',$Documentodoc);
-        $statement->bindParam(':Correodoc',$Correodoc);
-        $statement->bindParam(':Materiadoc',$Materiadoc);
-        $statement->bindParam(':Notas',$Notas);
+        $statement = $this->db->prepare("INSERT INTO docente (Nombredoc, Apellidodoc, Documentodoc, Correodoc, Materia)
+        VALUES(:Nombredoc, :Apellidodoc, :Documentodoc, :Correodoc, :Materia)");
+        $statement->bindParam(':Nombredoc', $nombredoc);
+        $statement->bindParam(':Apellidodoc', $apellidodoc);
+        $statement->bindParam(':Documentodoc', $documento);
+        $statement->bindParam(':Correodoc', $correo);
+        $statement->bindParam(':Perfil', $perfil);
+        $statement->bindParam(':Materia', $Materia);
         
+       
         if ($statement->execute()) {
             echo "Usuario registrado";
-            header('Location: ../pages/index.php');
+            header('Location: ../pages-copia/index.php');
+            exit();
         } else {
             echo "Usuario no registrado";
-            header('Location: ../pages/agregar.php');
+            header('Location: ../pages-copia/agregar.php');
+            exit();
         }
     }
 
-    // Funcion para consultar todos los usuarios administradores
-    public function getadmin()
+    // Resto de los métodos de la clase Docente
+
+    // ...
+
+    // Función para consultar todos los usuarios docentes
+    public function getdoc() 
     {
-        
-        $row = null;
-        $statement = $this->db->prepare("SELECT * FROM usuarios 
-        WHERE Perfil='Administrador'");
+        $row = [];
+        $statement = $this->db->prepare("SELECT * FROM docente WHERE perfil = 'docente'");
         $statement->execute();
+
         while ($result = $statement->fetch()) {
             $row[] = $result;
         }
+
         return $row;
     }
 
-    // Funcion para consultar usuario segun su ID
+    // Función para consultar un usuario por su id
     public function getidad($id)
     {
-        $row = null;
-        $statement = $this->db->prepare("SELECT * FROM usuarios WHERE id_usuario = :id AND perfil = 'Administrador'");
+        $row = [];
+        $statement = $this->db->prepare("SELECT * FROM docente WHERE id_docente = :id AND perfil = 'docente'");
         $statement->bindParam(':id', $id);
         $statement->execute();
+
         while ($result = $statement->fetch()) {
             $row[] = $result;
         }
+
         return $row;
     }
 
     // Actualizar los datos del usuario
-    public function updatead($Id,$Nombreuso,$Apellidouso,$Usuario, $Passwoord,$Estado)
-    {
-        $statement = $this->db->prepare("INSERT INTO usuarios(Nombreusu,Apellidousu,Usuario,Passwoord,Perfil,Estado)
-        VALUES(:Nombreusu,:Apellidousu,:Usuario,:Passwoord,:Perfil,:Estado)");
-        $statement->bindParam(':Nombreusu',$Nombreuso);
-        $statement->bindParam(':Apellidousu',$Apellidouso);
-        $statement->bindParam(':Usuario',$Usuario);
-        $statement->bindParam(':Passwoord',$Passwoord);
-        $statement->bindParam(':Perfil',$Perfil);
+    public function updatead($id, $nombredoc, $apellidodoc, $documento, $correo, $Perfil, $estado)
+    {  
+        $statement = $this->db->prepare("UPDATE docentes SET nombredoc = :nombredoc, apellidodoc = :apellidodoc, documento = :documento, correo = :correo, perfil = :perfil, estado = :estado WHERE id_docente = :id");
+        $statement->bindParam(':id', $id);
+        $statement->bindParam(':Nombredoc', $nombredoc);
+        $statement->bindParam(':Apellidodoc', $apellidodoc);
+        $statement->bindParam(':Documentodoc', $documentodoc);
+        $statement->bindParam(':Correo', $correo);
+        $statement->bindParam(':Perfil', $perfil);
+        $statement->bindParam(':estado', $estado);
 
         if ($statement->execute()) {
             echo "El usuario se actualizó correctamente";
             header('Location: ../pages-copia/index.php');
+            exit();
         } else {
             header('Location: ../pages/editar.php');
-        }
-    }
-
-    // Funcion para eliminar un usuario
-    public function deletead($id)
-    {
-        $statement = $this->db->prepare("DELETE FROM usuarios Where id_usuario=:Id ");
-        $statement->bindParam(':Id',$Id);
-
-        if ($statement->execute()) {
-            echo "Usuario eliminado";
-            header('Location: ../pages-copia/index.php');
-        } else {
-            echo "Error al eliminar el usuario";
-            header('Location: ../pages-copia/eliminar.php');
+            exit();
         }
     }
 }

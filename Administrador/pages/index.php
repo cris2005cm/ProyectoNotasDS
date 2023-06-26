@@ -32,7 +32,52 @@
       </ul>
 </NAV>
 <nav>
-      
+<br>
+<h1>Lista de usuarios</h1>
+<div class="container">
+  <div class="col-auto mt-5">
+    <table class="table table-dark table-hover">
+      <thead>
+        <tr>
+          <th>Id usuario</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Usuario</th>
+          <th>Perfil</th>
+          <th>Estado</th>
+          <th>Actualizar</th>
+          <th>Eliminar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <?php
+        require_once('../../Conexion.php');
+        require_once('../modelos/administrador.php');
+        $obj = new Administrador();
+        $datos= $obj->getadmin();
+
+        foreach ($datos as $key) {
+        ?>
+          <tr>
+            <td><?php echo $key['id_usuario'] ?></td>
+            <td><?php echo $key['Nombreusu'] ?></td>
+            <td><?php echo $key['Apellidousu'] ?></td>
+            <td><?php echo $key['Usuario'] ?></td>
+            <td><?php echo $key['Perfil'] ?></td>
+            <td><?php echo $key['Estado'] ?></td>
+            <td><a href="editar.php?id=<?php echo $key['id_usuario'] ?>" class="btn btn-danger">Actualizar</a></td>
+            <td><a href="eliminar.php?id=<?php echo $key['id_usuario'] ?>" class="btn btn-primary">Eliminar</a></td>
+          </tr>
+        <?php } ?>
+      </tbody>
+    </table>
+  </div>
+</div>
+</nav>
+
     
+</table>
+</div>
+</div>
 </body>
 </html>
