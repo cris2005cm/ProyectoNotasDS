@@ -6,8 +6,9 @@ $admin= new Administrador();
 
 $Nombreuso =$_POST['txtnombre'];
 $Apellidouso=$_POST['txtapellido'];
-$Passwordusu=MD5($_POST['txtcontrasena']);
 $Usuario=$_POST['txtusuario'];
+$Passwordusu=($_POST['txtcontrasena']);
+
 $Perfil=$_POST['txtperfil'];
 $Estadouso=$_POST['txtestado'];
 $admin->  addadmi($Nombreuso,$Apellidouso,$Usuario,$Passwordusu,$Perfil,$Estadouso);

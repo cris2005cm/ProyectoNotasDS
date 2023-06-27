@@ -21,10 +21,10 @@
     <br>
     <form  action="../../Administrador/controladores/agregarusuarios.php" method="POST">
       
-     <input type="Text" id="nombreuso"name="txtnombre" class="form-control" placeholder="Nombre" style="height: 40px;width: 250px;border: solid 1px;left: 550px;position: relative;
+     <input type="Text" id="nombreusu"name="txtnombre" class="form-control" placeholder="Nombre" style="height: 40px;width: 250px;border: solid 1px;left: 550px;position: relative;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
      <br>
-     <input type="Text" id="Apellidouso"name="txtapellido"class="form-control" placeholder="Apellido" style="height: 40px;width: 250px;border: solid 1px;left: 550px;position: relative;
+     <input type="Text" id="Apellidousu"name="txtapellido"class="form-control" placeholder="Apellido" style="height: 40px;width: 250px;border: solid 1px;left: 550px;position: relative;
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
      <br>
     
@@ -35,13 +35,12 @@
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
         <option  value="Docente">Docente</option>
         <option value="Administrador">Administrador</option>
-        <option value="Estudiante">Estudiante</option>
      </select>
      <br>
      <select name="txtestado" class="form-control"style="eight: 40px;width: 250px;border: solid 1px;left: 550px;position: relative;
    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
-        <option  value="Docente">Activo</option>
-        <option value="Administrador">Inactivo</option>
+        <option  value="Activo">Activo</option>
+        <option value="Inactivo">Inactivo</option>
         
      </select>
      <br>
@@ -57,6 +56,7 @@
     
 </body>
 </html>
+
 
 
 

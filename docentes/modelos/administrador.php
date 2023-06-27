@@ -1,5 +1,5 @@
 <<?php
-include_once('../../conexion.php');
+include_once('../../Conexion.php');
 
 class Docente extends conexion
 {
@@ -23,11 +23,11 @@ class Docente extends conexion
        
         if ($statement->execute()) {
             echo "Usuario registrado";
-            header('Location: ../pages-copia/index.php');
+            header('Location: ../pages/index.php');
             exit();
         } else {
             echo "Usuario no registrado";
-            header('Location: ../pages-copia/agregar.php');
+            header('Location: ../pages/agregar.php');
             exit();
         }
     }
@@ -79,7 +79,7 @@ class Docente extends conexion
 
         if ($statement->execute()) {
             echo "El usuario se actualizó correctamente";
-            header('Location: ../pages-copia/index.php');
+            header('Location: ../pages/index.php');
             exit();
         } else {
             header('Location: ../pages/editar.php');
