@@ -31,9 +31,9 @@
     left: 550px;
     position: relative;
     margin: 5px;
-    width: 247px;
+    width: 300px;
     height: 55px;
-    border: solid 2px;">Eliminar cuenta</h1>
+">Eliminar cuenta</h1>
     <br>
     <form  action="../controladores/eliminarusuario.php " method="POST">
       
